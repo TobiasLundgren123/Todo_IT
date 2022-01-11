@@ -10,10 +10,14 @@ public class Main {
         personOne.getSummary();
         personTwo.getSummary();
 
-        TodoItem todoItemOne = new TodoItem(3,"Clean", "Use soap", LocalDate.of(2020,01,11), false, personOne);
+        TodoItem todoItemOne = new TodoItem(3,"Clean", "Use soap", LocalDate.of(2020, 1,11), false, personOne);
 
 
+        todoItemOne.getSummary();
         todoItemOne.isOverdue();
+
+        TodoItemTask todoItemTask1 = new TodoItemTask(6,false, todoItemOne, personOne);
+        todoItemTask1.getSummary();
     }
 
 }
