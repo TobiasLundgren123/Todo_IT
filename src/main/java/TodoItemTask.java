@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class TodoItemTask {
 
     private int id;
@@ -12,10 +14,24 @@ public class TodoItemTask {
         } else {
             this.assigned = true;
         }
-        if (todoItem==null) {
-            System.out.println("TodoItem not allowed to be empty");
-        } else {
+        if (todoItem==null) throw new IllegalArgumentException("TodoItem was empty");
+        else {
             this.todoItem = todoItem; }
+        this.assignee = assignee;
+    }
+
+    public void setAssigned(boolean assigned) {
+        this.assigned = assigned;
+    }
+
+    public void setTodoItem(TodoItem todoItem) {
+        if (todoItem==null) throw new IllegalArgumentException("TodoItem was empty");
+        else {
+            this.todoItem = todoItem;
+        }
+    }
+
+    public void setAssignee(Person assignee) {
         this.assignee = assignee;
     }
 
@@ -35,9 +51,25 @@ public class TodoItemTask {
         return assignee;
     }
 
-    public void getSummary() {
+    @Override
+    public String toString() {
+        return "TodoItemTask{" +
+                "id=" + id +
+                ", assigned=" + assigned +
+                ", todoItem=" + todoItem +
+                '}';
+    }
 
-        System.out.println("Id: " + this.id + ". TodoItemTask: " + this.todoItem + " has been assigned? " + this.assigned + " by: " + this.assignee);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItemTask that = (TodoItemTask) o;
+        return id == that.id && assigned == that.assigned && todoItem.equals(that.todoItem);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, assigned, todoItem);
     }
 }

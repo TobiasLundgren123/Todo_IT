@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class TodoItem {
 
@@ -11,21 +12,42 @@ public class TodoItem {
 
     public TodoItem(int id, String title, String taskDescription, LocalDate deadLine, boolean done, Person creator) {
         this.id = id;
-        if (title.length() == 0) {
-            System.out.println("Title not allowed to be empty");
-        } else {
+        if (title.length()==0) throw new IllegalArgumentException("Title was empty");
+
+        else {
             this.title = title;
         }
         this.taskDescription = taskDescription;
-        this.deadLine = deadLine;
+        if (deadLine==null) throw new IllegalArgumentException("Deadline was empty");
+        else {
+            this.deadLine = deadLine;
+        }
         this.done = done;
         this.creator = creator;
          }
 
-    public void getSummary() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return id == todoItem.id && done == todoItem.done && title.equals(todoItem.title) && Objects.equals(taskDescription, todoItem.taskDescription) && deadLine.equals(todoItem.deadLine);
+    }
 
-        System.out.println("Id: " + this.id + ". Title: " + this.title + " - " + this.taskDescription + ". Deadline: " + this.deadLine + ". Completed: " + done + ". Created by : " + creator);
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, taskDescription, deadLine, done);
+    }
 
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", deadLine=" + deadLine +
+                ", done=" + done +
+                '}';
     }
 
     public boolean isOverdue() {
@@ -38,6 +60,34 @@ public class TodoItem {
             return false;
         }
 
+    }
+
+
+    public void setTitle(String title) {
+        if (title.length()==0) throw new IllegalArgumentException("Title was empty");
+
+        else {
+            this.title = title;
+        }
+    }
+
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
+    }
+
+    public void setDeadLine(LocalDate deadLine) {
+        if (deadLine==null) throw new IllegalArgumentException("Deadline was empty");
+        else {
+            this.deadLine = deadLine;
+        }
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public void setCreator(Person creator) {
+        this.creator = creator;
     }
 
     public int getId() {
