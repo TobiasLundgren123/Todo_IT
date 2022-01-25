@@ -14,14 +14,12 @@ public class Main {
         todoItemOne.isOverdue();
 
         TodoItemTask todoItemTask1 = new TodoItemTask(6,false, todoItemOne, personOne);
-        todoItemTask1.getSummary();
         AppUser appuser = new AppUser("Test", "1234", AppUser.AppRole.ROLE_APP_ADMIN);
         System.out.println(appuser.getRole());
         System.out.println(appuser.getPassword());
         System.out.println(appuser.getUsername());
-        System.out.println(personOne.toString());
+        System.out.println(personOne);
 
-        personOne.setCredentials(personOne.getCredentials());
         System.out.println(personOne.getCredentials());
 
 
