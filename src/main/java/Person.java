@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 public class Person {
@@ -7,6 +9,7 @@ public class Person {
     private String lastName;
     private String email;
     private AppUser credentials;
+    private Collection<Person> person;
 
     public Person(int id, String firstName, String lastName, String email) {
         this.id = id;
@@ -22,6 +25,7 @@ public class Person {
         else {
             this.email = email;
         }
+        person = new ArrayList<>();
     }
 
     public int getId() {
@@ -36,26 +40,8 @@ public class Person {
         this.credentials = credentials;
     }
 
-    public void setFirstName(String firstName) {
-        if (firstName.length()==0) throw new IllegalArgumentException("First name was empty");
-        else {
-            this.firstName = firstName;
-        }
-    }
 
-    public void setLastName(String lastName) {
-        if (lastName.length()==0) throw new IllegalArgumentException("Last name was empty");
-        else {
-            this.lastName = lastName;
-        }
-    }
 
-    public void setEmail(String email) {
-        if (email.length()==0) throw new IllegalArgumentException("Last name was empty");
-        else {
-            this.email = email;
-        }
-    }
 
     public String getFirstName() {
         return firstName;

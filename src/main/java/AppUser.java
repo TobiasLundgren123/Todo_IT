@@ -2,10 +2,7 @@ import java.util.Objects;
 
 public class AppUser {
 
-    enum AppRole {
-        ROLE_APP_USER,
-        ROLE_APP_ADMIN,
-    }
+
 
     private String username;
     private String password;
@@ -26,13 +23,6 @@ public class AppUser {
 
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        if (username.length()==0) throw new IllegalArgumentException("Username name was empty");
-        else {
-            this.username = username;
-        }
     }
 
     public String getPassword() {

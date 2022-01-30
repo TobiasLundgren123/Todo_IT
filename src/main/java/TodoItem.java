@@ -62,34 +62,6 @@ public class TodoItem {
 
     }
 
-
-    public void setTitle(String title) {
-        if (title.length()==0) throw new IllegalArgumentException("Title was empty");
-
-        else {
-            this.title = title;
-        }
-    }
-
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
-    }
-
-    public void setDeadLine(LocalDate deadLine) {
-        if (deadLine==null) throw new IllegalArgumentException("Deadline was empty");
-        else {
-            this.deadLine = deadLine;
-        }
-    }
-
-    public void setDone(boolean done) {
-        this.done = done;
-    }
-
-    public void setCreator(Person creator) {
-        this.creator = creator;
-    }
-
     public int getId() {
         return id;
     }

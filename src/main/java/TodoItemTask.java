@@ -20,20 +20,7 @@ public class TodoItemTask {
         this.assignee = assignee;
     }
 
-    public void setAssigned(boolean assigned) {
-        this.assigned = assigned;
-    }
 
-    public void setTodoItem(TodoItem todoItem) {
-        if (todoItem==null) throw new IllegalArgumentException("TodoItem was empty");
-        else {
-            this.todoItem = todoItem;
-        }
-    }
-
-    public void setAssignee(Person assignee) {
-        this.assignee = assignee;
-    }
 
     public int getId() {
         return id;
