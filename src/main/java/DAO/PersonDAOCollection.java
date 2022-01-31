@@ -1,5 +1,6 @@
 package DAO;
 
+
 import Sequencers.PersonIdSequencer;
 
 import java.util.Collection;
@@ -22,23 +23,32 @@ public class PersonDAOCollection implements PersonDAO{
                 return person;
             }
         }
-        return null;
+
 
         return null;
     }
 
     @Override
     public Person findByEmail(String email) {
+
+        for (Person person : persons) {
+            if (Person.getEmail().equals(email)){
+                return person;
+            }
+        }
+
         return null;
     }
 
     @Override
     public Collection<Person> findAll() {
-        return null;
+        return Collection<Person>;
     }
 
     @Override
     public void remove(int id) {
+
+        Person.remove(id);
 
     }
 }
