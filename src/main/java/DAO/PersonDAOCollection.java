@@ -7,11 +7,13 @@ import java.util.Collection;
 
 public class PersonDAOCollection implements PersonDAO{
 
-    private Collection<Person> Person;
+    private Collection<Person> persons;
 
     @Override
     public Person persist(Person person) {
         int id = PersonIdSequencer.nextId();
+
+        Person person = new Person(id, )        //TODO
         return null;
     }
 
@@ -48,7 +50,7 @@ public class PersonDAOCollection implements PersonDAO{
     @Override
     public void remove(int id) {
 
-        Person.remove(id);
+        persons.remove(id);
 
     }
 }
