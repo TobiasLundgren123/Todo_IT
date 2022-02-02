@@ -25,7 +25,7 @@ public class AppUserDAOCollection implements AppUserDAO{
 
     @Override
     public Collection<AppUser> findAll() {
-        return Collection<AppUser>;
+        return Collection<AppUser>(appUsers);
     }
 
     @Override

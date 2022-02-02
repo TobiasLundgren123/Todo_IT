@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public interface TodoItemDAO {
 
-    private Collection<TodoItem> toDoItems;
+    private Collection<TodoItem> todoItems;
     TodoItem persist(TodoItem todoItem);
     TodoItem findById(int id);
     Collection<TodoItem> findAll();

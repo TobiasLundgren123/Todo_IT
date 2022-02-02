@@ -44,7 +44,7 @@ public class PersonDAOCollection implements PersonDAO{
 
     @Override
     public Collection<Person> findAll() {
-        return Collection<Person>;
+        return Collection<Person>(persons);
     }
 
     @Override
