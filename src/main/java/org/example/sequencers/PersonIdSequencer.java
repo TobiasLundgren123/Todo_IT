@@ -1,4 +1,4 @@
-package Sequencers;
+package org.example.sequencers;
 
 public class PersonIdSequencer {
 
@@ -16,6 +16,5 @@ public class PersonIdSequencer {
     public static int getCurrentId() {
         return currentId;
     }
-
 
 }

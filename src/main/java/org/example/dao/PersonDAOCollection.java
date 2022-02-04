@@ -1,27 +1,29 @@
-package DAO;
+package org.example.dao;
 
 
-import Sequencers.PersonIdSequencer;
+import org.example.Person;
+import org.example.sequencers.PersonIdSequencer;
+
 
 import java.util.Collection;
+import java.util.HashSet;
 
 public class PersonDAOCollection implements PersonDAO{
 
-    private Collection<Person> persons;
+    private HashSet<Person> persons;
 
     @Override
     public Person persist(Person person) {
-        int id = PersonIdSequencer.nextId();
-
-        Person person = new Person(id, )        //TODO
-        return null;
+        return persons.add(person) ? person : null;
     }
+
+
 
     @Override
     public Person findById(int id) {
 
         for (Person person : persons) {
-            if (Person.getId().equals(id)){
+            if (person.getId() == (id)){
                 return person;
             }
         }
@@ -34,7 +36,7 @@ public class PersonDAOCollection implements PersonDAO{
     public Person findByEmail(String email) {
 
         for (Person person : persons) {
-            if (Person.getEmail().equals(email)){
+            if (person.getEmail().equals(email)){
                 return person;
             }
         }
@@ -44,7 +46,7 @@ public class PersonDAOCollection implements PersonDAO{
 
     @Override
     public Collection<Person> findAll() {
-        return Collection<Person>(persons);
+        return new HashSet<>(persons);
     }
 
     @Override

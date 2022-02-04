@@ -1,4 +1,8 @@
-package DAO;
+package org.example.dao;
+
+import org.example.AppUser;
+
+import java.util.Collection;
 
 public interface AppUserDAO {
 

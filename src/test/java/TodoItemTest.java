@@ -1,3 +1,5 @@
+import org.example.Person;
+import org.example.TodoItem;
 import org.junit.Test;
 
 import java.time.LocalDate;

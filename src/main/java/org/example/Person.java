@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
@@ -9,7 +11,7 @@ public class Person {
     private String lastName;
     private String email;
     private AppUser credentials;
-    private Collection<Person> person;
+    private Collection<Person> persons;
 
     public Person(int id, String firstName, String lastName, String email) {
         this.id = id;
@@ -25,7 +27,7 @@ public class Person {
         else {
             this.email = email;
         }
-        person = new ArrayList<>();
+        persons = new ArrayList<>();
     }
 
     public int getId() {
@@ -62,7 +64,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "org.example.Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

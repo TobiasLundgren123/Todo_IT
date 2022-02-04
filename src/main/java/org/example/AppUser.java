@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Objects;
 
 public class AppUser {
@@ -59,7 +61,7 @@ public class AppUser {
 
     @Override
     public String toString() {
-        return "AppUser{" +
+        return "org.example.AppUser{" +
                 "username='" + username + '\'' +
                 ", role=" + role +
                 '}';

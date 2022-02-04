@@ -1,22 +1,25 @@
-package DAO;
+package org.example.dao;
+
+import org.example.TodoItem;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.HashSet;
 
 public class TodoItemDAOCollection implements TodoItemDAO{
 
-    private Collection<TodoItem> todoItems;
+    private HashSet<TodoItem> todoItems;
 
     @Override
     public TodoItem persist(TodoItem todoItem) {
-        return null;                                     //TODO
+        return todoItems.add(todoItem) ? todoItem : null;
     }
 
     @Override
     public TodoItem findById(int id) {
 
         for (TodoItem todoitem : todoItems) {
-            if (TodoItem.getId().equals(id)){
+            if (todoitem.getId() == (id)){
                 return todoitem;
             }
         }
@@ -26,7 +29,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
 
     @Override
     public Collection<TodoItem> findAll() {
-        return Collection<TodoItem>(todoItems);
+        return new HashSet<>(todoItems);
     }
 
     @Override
@@ -36,7 +39,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
 
 
         for (TodoItem items : todoItems) {
-            if (items.isDone) {                         //fel? (items.done)
+            if (items.isDone()) {
                 found.add(items);
             }
         }
@@ -65,7 +68,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
 
         for (TodoItem items : todoItems
         ) {
-            if (items.getCreator().matches(id)) {
+            if (items.getCreator().equals(id)) {
                 foundMatches.add(items);
             }
         }
@@ -80,7 +83,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
 
         for (TodoItem items :
                 todoItems) {
-            if (items.deadLine().isAfter(date)){
+            if (items.getDeadLine().isAfter(date)){
                 found.add(items);
             }
         }
@@ -94,7 +97,7 @@ public class TodoItemDAOCollection implements TodoItemDAO{
 
         for (TodoItem items :
                 todoItems) {
-            if (items.deadLine().isBefore(date)){
+            if (items.getDeadLine().isBefore(date)){
                 found.add(items);
             }
         }

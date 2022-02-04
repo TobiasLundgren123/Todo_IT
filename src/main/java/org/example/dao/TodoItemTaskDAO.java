@@ -1,10 +1,11 @@
-package DAO;
+package org.example.dao;
 
-import java.time.LocalDate;
+import org.example.TodoItemTask;
+
+import java.util.Collection;
 
 public interface TodoItemTaskDAO {
 
-    private Collection<TodoItemTask> todoItemTasks;
     TodoItemTask persist(TodoItemTask todoItemTask);
     TodoItemTask findById(int id);
     Collection<TodoItemTask> findAll();

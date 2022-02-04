@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Objects;
 
 public class TodoItemTask {
@@ -14,7 +16,7 @@ public class TodoItemTask {
         } else {
             this.assigned = true;
         }
-        if (todoItem==null) throw new IllegalArgumentException("TodoItem was empty");
+        if (todoItem==null) throw new IllegalArgumentException("org.example.TodoItem was empty");
         else {
             this.todoItem = todoItem; }
         this.assignee = assignee;
@@ -40,7 +42,7 @@ public class TodoItemTask {
 
     @Override
     public String toString() {
-        return "TodoItemTask{" +
+        return "org.example.TodoItemTask{" +
                 "id=" + id +
                 ", assigned=" + assigned +
                 ", todoItem=" + todoItem +

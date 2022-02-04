@@ -1,3 +1,5 @@
+package org.example;
+
 public enum AppRole {
 
         ROLE_APP_USER,

@@ -1,22 +1,25 @@
-package DAO;
+package org.example.dao;
 
+import org.example.TodoItemTask;
+
+import java.util.Collection;
 import java.util.HashSet;
 
 public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
 
-    private Collection<TodoItemTask> todoItemTasks;
+    private HashSet<TodoItemTask> todoItemTasks;
 
     @Override
     public TodoItemTask persist(TodoItemTask todoItemTask) {
-        return null;                                            //ToDO
+        return todoItemTasks.add(todoItemTask) ? todoItemTask : null;
     }
 
     @Override
     public TodoItemTask findById(int id) {
 
-        for (TodoItemTask todoitems : todoItemTasks) {
-            if (TodoItemTask.getId().equals(id)){
-                return todoitems;
+        for (TodoItemTask todoitemtask : todoItemTasks) {
+            if (todoitemtask.getId() == (id)){
+                return todoitemtask;
             }
         }
 
@@ -25,7 +28,7 @@ public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
 
     @Override
     public Collection<TodoItemTask> findAll() {
-        return Collection<TodoItemTask>(todoItemTasks);
+        return new HashSet<>(todoItemTasks);
     }
 
     @Override
@@ -35,7 +38,7 @@ public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
 
 
         for (TodoItemTask items : todoItemTasks) {
-            if (items.isAssigned) {                         //fel? (items.done)
+            if (items.isAssigned()) {                         //fel? (items.done)
                 found.add(items);
             }
         }
@@ -49,7 +52,7 @@ public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
 
         for (TodoItemTask items : todoItemTasks) {
 
-            if (items.getAssignee().matches(id)) {
+            if (items.getAssignee().equals(id)) {
                 foundMatches.add(items);
             }
         }

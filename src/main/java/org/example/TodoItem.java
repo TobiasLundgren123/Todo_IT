@@ -1,3 +1,5 @@
+package org.example;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -41,7 +43,7 @@ public class TodoItem {
 
     @Override
     public String toString() {
-        return "TodoItem{" +
+        return "org.example.TodoItem{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", taskDescription='" + taskDescription + '\'' +

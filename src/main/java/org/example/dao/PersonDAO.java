@@ -1,8 +1,10 @@
-package DAO;
+package org.example.dao;
+
+import org.example.Person;
 
 import java.util.Collection;
 
-public interface PersonDAO<Person> {
+public interface PersonDAO {
 
 Person persist(Person person);
 Person findById(int id);

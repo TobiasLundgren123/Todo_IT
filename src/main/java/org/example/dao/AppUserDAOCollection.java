@@ -1,14 +1,18 @@
-package DAO;
+package org.example.dao;
+
+import org.example.AppUser;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 public class AppUserDAOCollection implements AppUserDAO{
 
-    private Collection<AppUser> appUsers;
+    private HashSet<AppUser> appUsers;
     @Override
     public AppUser persist(AppUser appUser) {
 
-        return null;         //TODO
+        return appUsers.add(appUser) ? appUser : null;
+
     }
 
     @Override
@@ -25,7 +29,7 @@ public class AppUserDAOCollection implements AppUserDAO{
 
     @Override
     public Collection<AppUser> findAll() {
-        return Collection<AppUser>(appUsers);
+        return new HashSet<>(appUsers);
     }
 
     @Override
